@@ -1,0 +1,16 @@
+<div>
+	<form>
+		<mat-form-field>
+			<input placeholder="Device ID" matInput (change)="onDeviceIdChange($event)" />
+		</mat-form-field>
+		<br /><br>
+		<mat-checkbox>Stay put</mat-checkbox>
+		<br /><br>
+		<button mat-fab (click)="startTracking()" type="button">Start</button>
+		&nbsp;
+		<button mat-fab (click)="stopTracking()" type="button">Stop</button>
+		<br />
+		<p>Latitude: {{state.lat}}</p>
+		<p>Longitude: {{state.long}}</p>
+	</form>
+</div>
