@@ -7,7 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MvfTabsComponent } from './mvf-tabs/mvf-tabs.component';
 import { MapMvfComponent } from './map-mvf/map-mvf.component';
 import { ChartsMvfComponent } from './charts-mvf/charts-mvf.component';
+import { DeviceIdMvfComponent } from './device-id-mvf/device-id-mvf.component';
 import { TrackerMvfComponent } from './tracker-mvf/tracker-mvf.component';
+
+import { GpsService } from './services/gps.service';
 
 import { AgmCoreModule } from '@agm/core';
 import { ChartsModule } from 'ng2-charts';
@@ -87,7 +90,8 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    ]
+    ],
+  declarations: []
 })
 export class MaterialModule {}
 
@@ -97,7 +101,8 @@ export class MaterialModule {}
     MvfTabsComponent,
     MapMvfComponent,
     ChartsMvfComponent,
-    TrackerMvfComponent
+    TrackerMvfComponent,
+    DeviceIdMvfComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +112,9 @@ export class MaterialModule {}
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBvMsplawkTK8COohyON7Bp3W_ou3iG2Tw' }),
     ChartsModule
   ],
-  providers: [],
+  providers: [
+    GpsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

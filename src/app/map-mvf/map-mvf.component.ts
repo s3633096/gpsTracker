@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GpsService } from '../services/gps.service';
 
 @Component({
   selector: 'app-map-mvf',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapMvfComponent implements OnInit {
 
-  constructor() { }
+  constructor(public gpsSvc: GpsService) { }
 
-  lat: number = 51.678418;
-  long: number = 7.809007;
+  lat: number = -33.8566542;
+  long: number = 151.216084;
   
   ngOnInit() {
+  	setInterval(() => {
+  		this.gpsSvc.getTicks();
+  	}, 5000)
   }
 
+  toNumber(str:string) {
+  	return parseFloat(str)
+  }
 }

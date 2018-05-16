@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GpsService } from '../services/gps.service';
 
 @Component({
   selector: 'app-tracker-mvf',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrackerMvfComponent implements OnInit {
 
-  constructor(public httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient, public gpsSvc: GpsService) {
 
   }
 
@@ -29,7 +30,6 @@ export class TrackerMvfComponent implements OnInit {
   }
 
   getDevicePosition() {
-  	debugger;
   	navigator.geolocation.getCurrentPosition((pos) => {
   		this.state.lat = pos.coords.latitude;
   		this.state.long = pos.coords.longitude;
@@ -49,15 +49,16 @@ export class TrackerMvfComponent implements OnInit {
   }
 
   postPosition() {
-  	let url = 'https://13.211.168.169:3000/gps';
+  	let url = 'https://www.mototrack.co:3000/gps';
   	let body = {
+      device_id: this.gpsSvc.deviceId,
   		latitude: this.state.lat,
   		longitude: this.state.long,
   		isStolen: this.state.stolen,
   	}
 
   	this.httpClient.post(url, body).subscribe(data => {
-  		debugger;
+
   	})
 
   }

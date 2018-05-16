@@ -1,6 +1,5 @@
 <section>
-	<agm-map [latitude]="lat" [longitude]="long"></agm-map>
-	<!-- should be nested
-		<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-	-->
+	<agm-map [latitude]="lat" [longitude]="long">
+		<agm-marker *ngFor="let t of gpsSvc.gpsTicks" [latitude]="toNumber(t.lat)" [longitude]="toNumber(t.long)"></agm-marker>
+	</agm-map>
 </section>
