@@ -1,7 +1,7 @@
 <div>
-	<form>
+	<form action="javascript:void(0);">
 		<mat-form-field>
-			<input placeholder="Device ID" matInput (change)="onDeviceIdChange($event)" />
+			<input placeholder="Device ID" type="text" matInput (ngModel)="gpsSvc.deviceId" (change)="onDeviceIdChange($event)" />
 		</mat-form-field>
 	</form>
 </div>

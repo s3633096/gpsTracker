@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GpsService {
 
-  public deviceId: string;
-  public gpsTicks: any;
+  public deviceId: string = "";
+  public gpsTicks: any = [];
   
   constructor(private httpClient:HttpClient) { }
 

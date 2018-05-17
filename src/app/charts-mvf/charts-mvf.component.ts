@@ -8,9 +8,17 @@ import { GpsService } from '../services/gps.service';
 })
 export class ChartsMvfComponent implements OnInit {
 
-  constructor(public gpsSvc: GpsService) { }
+deviceId: string = "";
+
+  constructor(public gpsSvc: GpsService) { 
+
+  }
 
   ngOnInit() {
+  }
+
+  getTickCount() {
+  	if (this.gpsSvc && this.gpsSvc.gpsTicks) return this.gpsSvc.gpsTicks.length
   }
 
 }

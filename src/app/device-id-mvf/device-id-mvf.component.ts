@@ -8,11 +8,10 @@ import { GpsService } from '../services/gps.service';
 })
 export class DeviceIdMvfComponent implements OnInit {
 
-  public deviceId: string;
-
-  constructor(private gpsSvc: GpsService) { }
+  constructor(public gpsSvc: GpsService) { }
 
   ngOnInit() {
+
   }
 
   onDeviceIdChange(evt) {
